@@ -1,6 +1,6 @@
 # 🌿 Portfolio de Quentin B. · BTS SIO SISR
 
-> *Un portfolio aux inspirations naturels et enfantinnes.
+> *Un portfolio aux inspirations naturelles et enfantines.
 > Etant quelqu'un de simple et de positif, mon portfolio devait le refléter.
 > https://tsymlis.github.io/Portfolio_B_Quentin/*
 
