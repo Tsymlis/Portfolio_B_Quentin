@@ -2,7 +2,883 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=portfolio_quentin.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Quentin B. | BTS SIO SISR</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 50%, #90EE90 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Nuages flottants */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 100px;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 50px;
+            left: 10%;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 40px;
+            top: -20px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 30px;
+            top: -10px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 120px;
+            height: 45px;
+            top: 150px;
+            right: 15%;
+            animation-delay: -5s;
+        }
+
+        .cloud2::before {
+            width: 60px;
+            height: 45px;
+            top: -22px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 70px;
+            height: 35px;
+            top: -12px;
+            right: 15px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Navigation artistique */
+        nav {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #6B8E23;
+            font-size: 1.2rem;
+            color: #2F4F2F;
+            transform: rotate(-2deg);
+        }
+
+        .nav-item:nth-child(2) {
+            transform: rotate(1deg);
+        }
+
+        .nav-item:nth-child(3) {
+            transform: rotate(-1deg);
+        }
+
+        .nav-item:nth-child(4) {
+            transform: rotate(2deg);
+        }
+
+        .nav-item:hover {
+            transform: scale(1.1) rotate(0deg);
+            background: #F0FFF0;
+            box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
+        }
+
+        /* Page d'accueil style Totoro */
+        #accueil {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .title-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .title-container h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 5rem;
+            color: #2F4F2F;
+            text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.7);
+            animation: gentle-bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .subtitle {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            font-size: 1.1rem;
+            color: rgba(47, 79, 47, 0.6);
+            letter-spacing: 1px;
+        }
+
+        /* Arbres décoratifs */
+        .tree {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .tree-left {
+            left: 50px;
+            width: 150px;
+            height: 200px;
+            background: #228B22;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.7;
+        }
+
+        .tree-right {
+            right: 80px;
+            width: 120px;
+            height: 180px;
+            background: #32CD32;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            opacity: 0.6;
+        }
+
+        /* Section créations - disposition éclatée */
+        #creations {
+            min-height: 100vh;
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .creations-title {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            color: #2F4F2F;
+            text-align: center;
+            margin-bottom: 80px;
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
+        }
+
+        .creations-scattered {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 1200px;
+        }
+
+        .creation-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border: 4px solid #8FBC8F;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            max-width: 300px;
+        }
+
+        .creation-card:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            box-shadow: 0 12px 35px rgba(107, 142, 35, 0.3);
+            z-index: 100;
+        }
+
+        .creation-card:nth-child(1) {
+            top: 0;
+            left: 5%;
+            transform: rotate(-5deg);
+        }
+
+        .creation-card:nth-child(2) {
+            top: 50px;
+            right: 10%;
+            transform: rotate(3deg);
+        }
+
+        .creation-card:nth-child(3) {
+            top: 250px;
+            left: 30%;
+            transform: rotate(-2deg);
+        }
+
+        .creation-card:nth-child(4) {
+            top: 350px;
+            right: 25%;
+            transform: rotate(4deg);
+        }
+
+        .creation-card:nth-child(5) {
+            top: 600px;
+            left: 10%;
+            transform: rotate(2deg);
+        }
+
+        .creation-card:nth-child(6) {
+            top: 700px;
+            right: 15%;
+            transform: rotate(-3deg);
+        }
+
+        .creation-card:nth-child(7) {
+            top: 950px;
+            left: 35%;
+            transform: rotate(1deg);
+        }
+
+        .creation-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            animation: wiggle 2s infinite ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .creation-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: #2F4F2F;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .creation-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .creation-tag {
+            display: inline-block;
+            background: #F0FFF0;
+            border: 2px solid #90EE90;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #2F4F2F;
+        }
+
+        /* Section contact */
+        #contact {
+            min-height: 100vh;
+            padding: 100px 50px;
+            display: none;
+            justify-content: center;
+        }
+
+        #contact.active {
+            display: flex;
+        }
+
+        /* Section Synthèse */
+        #synthese {
+            min-height: 100vh;
+            padding: 100px 50px;
+        }
+
+        .synthese-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 5px solid #8FBC8F;
+            transform: rotate(-0.5deg);
+        }
+
+        .synthese-container h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: #2F4F2F;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 75vh;
+            border: 3px solid #90EE90;
+            border-radius: 17px;
+            display: block;
+            background: white;
+        }
+
+        /* Modal pour les créations */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.98);
+            margin: 3% auto;
+            padding: 40px;
+            border: 5px solid #8FBC8F;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideDown 0.4s;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2F4F2F;
+            cursor: pointer;
+            background: #F0FFF0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #90EE90;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #90EE90;
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            color: #2F4F2F;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pdf-list {
+            margin: 20px 0;
+        }
+
+        .pdf-item {
+            background: #F0FFF0;
+            border: 3px solid #90EE90;
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            justify-content: space-between;
+        }
+
+        .pdf-item-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .pdf-item-left:hover {
+            color: #6B8E23;
+        }
+
+        .pdf-item-icon {
+            font-size: 1.8rem;
+        }
+
+        .modal-pdf-viewer {
+            width: 100%;
+            height: 70vh;
+            border: 3px solid #90EE90;
+            border-radius: 15px;
+            margin-top: 20px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 5px solid #8FBC8F;
+            transform: rotate(-1deg);
+        }
+
+        .contact-container h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 3.5rem;
+            color: #2F4F2F;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .submit-btn {
+            background: #90EE90;
+            color: #2F4F2F;
+            padding: 15px 40px;
+            border: 3px solid #6B8E23;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-family: 'Caveat', cursive;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            background: #6B8E23;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Petites feuilles décoratives */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #90EE90;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            opacity: 0.6;
+            animation: fall 10s infinite ease-in-out;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .title-container h1 {
+                font-size: 3rem;
+            }
+
+            nav {
+                right: 20px;
+                top: 20px;
+            }
+
+            .nav-item {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+
+            .creation-card {
+                position: relative !important;
+                margin: 20px auto;
+                transform: rotate(0deg) !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+            }
+
+            .creations-scattered {
+                min-height: auto;
+            }
+
+            .contact-container {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
-<body></body>
+<body>
+    <!-- Nuages -->
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <!-- Feuilles tombantes -->
+    <div class="leaf" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="leaf" style="left: 60%; animation-delay: 3s;"></div>
+    <div class="leaf" style="left: 80%; animation-delay: 6s;"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-item" onclick="showSection('accueil')">🏠 Accueil</div>
+        <div class="nav-item" onclick="showSection('creations')">✨ Créations</div>
+        <div class="nav-item" onclick="showSection('synthese')">📊 Synthèse</div>
+        <div class="nav-item" onclick="showSection('contact')">📮 Contact</div>
+    </nav>
+
+    <!-- Page d'accueil -->
+    <section id="accueil" class="section active">
+        <div class="tree tree-left"></div>
+        <div class="tree tree-right"></div>
+        <div class="title-container">
+            <h1>Portfolio de Quentin B.</h1>
+        </div>
+        <div class="subtitle">BTS SIO - SISR</div>
+    </section>
+
+    <!-- Mes créations -->
+    <section id="creations" class="section">
+        <h2 class="creations-title">Mes Créations</h2>
+        <div class="creations-scattered">
+            <div class="creation-card" onclick="openCreationModal('patrimoine')">
+                <div class="creation-icon">📦</div>
+                <h3>Patrimoine Informatique</h3>
+                <p>Inventaire et gestion complète du parc via GLPI</p>
+                <span class="creation-tag">GLPI</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('support')">
+                <div class="creation-icon">🎫</div>
+                <h3>Support & Assistance</h3>
+                <p>Gestion des incidents et ticketing utilisateur</p>
+                <span class="creation-tag">Ticketing</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('projet')">
+                <div class="creation-icon">📋</div>
+                <h3>Mode Projet</h3>
+                <p>Planification agile et suivi avec Trello</p>
+                <span class="creation-tag">Trello</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('cloud')">
+                <div class="creation-icon">☁️</div>
+                <h3>Service Cloud</h3>
+                <p>Déploiement Nextcloud pour partage collaboratif</p>
+                <span class="creation-tag">Nextcloud</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('reseau')">
+                <div class="creation-icon">🌐</div>
+                <h3>Infrastructure Réseau</h3>
+                <p>Configuration et déploiement services réseau</p>
+                <span class="creation-tag">Réseau</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('accompagnement')">
+                <div class="creation-icon">📚</div>
+                <h3>Accompagnement</h3>
+                <p>Formations internes et documentation utilisateur</p>
+                <span class="creation-tag">Formation</span>
+            </div>
+
+            <div class="creation-card" onclick="openCreationModal('veille')">
+                <div class="creation-icon">📡</div>
+                <h3>Veille Techno</h3>
+                <p>Veille RSS et Certification Pix (en cours)</p>
+                <span class="creation-tag">Cisco</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Synthèse -->
+    <section id="synthese" class="section">
+        <div class="synthese-container">
+            <h2>Tableau de Synthèse</h2>
+            <iframe
+                src="pdfs/BTS-SIO_Tableau-synthese_Epreuve-E5.pdf"
+                class="pdf-embed"
+                title="Tableau de Synthèse E5">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="contact-container">
+            <h2>Me Contacter</h2>
+            <div style="text-align: center; margin-bottom: 30px; padding: 20px; background: #F0FFF0; border-radius: 15px; border: 3px solid #90EE90;">
+                <p style="font-size: 1.2rem; color: #2F4F2F; margin-bottom: 15px;">📧 Mon adresse email :</p>
+                <p style="font-size: 1.4rem; color: #6B8E23; font-weight: bold; margin-bottom: 20px; font-family: 'Caveat', cursive;">quentin.bordron@angers.polebtsalternance.fr</p>
+                <button id="copy-email-btn" class="submit-btn" style="width: auto; padding: 15px 40px;">
+                    📋 Copier l'email
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <h3 style="font-family: 'Caveat', cursive; font-size: 2.5rem; color: #2F4F2F; margin-bottom: 20px;">Mon CV</h3>
+                <iframe
+                    src="pdfs/CV_Quentin_Bordron_2026.pdf"
+                    class="pdf-embed"
+                    style="height: 85vh;"
+                    title="CV Quentin Bordron 2026">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour les créations -->
+    <div id="creation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCreationModal()">×</span>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p style="text-align: center; color: #555; margin-bottom: 20px;" id="modal-description"></p>
+            <div class="pdf-list" id="pdf-list"></div>
+        </div>
+    </div>
+
+    <!-- Modal pour visualiser un PDF -->
+    <div id="pdf-viewer-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePDFViewer()">×</span>
+            <h2 class="modal-title" id="pdf-viewer-title"></h2>
+            <div id="modal-pdf-viewer" class="modal-pdf-viewer"></div>
+        </div>
+    </div>
+
+    <script>
+        const creationsData = {
+            patrimoine: {
+                title: 'Patrimoine Informatique',
+                description: 'Inventaire et gestion complète du parc via GLPI',
+                pdfs: []
+            },
+            support: {
+                title: 'Support & Assistance',
+                description: 'Gestion des incidents et ticketing utilisateur',
+                pdfs: [
+                    { name: 'Agenda BUG Tuto',                    path: 'pdfs/Tickets/AgendaBUG_Tuto.pdf' },
+                    { name: 'Demande Matériel',                   path: 'pdfs/Tickets/Demande_Materiel.pdf' },
+                    { name: 'Demande Tuto MEG',                   path: 'pdfs/Tickets/Demande_Tuto_MEG.pdf' },
+                    { name: 'Logs Coutosuix',                     path: 'pdfs/Tickets/Logs_Coutosuix.pdf' },
+                    { name: 'Souris Ergonomique',                 path: 'pdfs/Tickets/Souris_ergonomique.pdf' },
+                    { name: 'Surchauffe PC - Nettoyage',          path: 'pdfs/Tickets/Surchauffe_PC_nettoyage.pdf' },
+                    { name: 'Transition compte Talk - Erreur Log', path: 'pdfs/Tickets/Transition_compte_Talk_erreurLog.pdf' }
+                ]
+            },
+            projet: {
+                title: 'Mode Projet',
+                description: 'Planification agile et suivi avec Trello',
+                pdfs: [
+                    { name: 'Trello',                   path: 'pdfs/Projets/Trello.pdf' },
+                    { name: 'Nextcloud',                path: 'pdfs/Projets/Nextcloud.pdf' },
+                    { name: 'Projet École Zabbix',      path: 'pdfs/Projets/Projet_ecole_Zabbix.pdf' },
+                    { name: 'Réseau Alisée Angers',     path: 'pdfs/Projets/Projet Pro_QB_v2- Reseau Alisee Angers.pdf' },
+                    { name: 'Description Batiko',       path: 'pdfs/Projets/DescriptionBatiko.pdf' }
+                ]
+            },
+            cloud: {
+                title: 'Service Cloud',
+                description: 'Déploiement Nextcloud pour partage collaboratif',
+                pdfs: [
+                    { name: 'Nextcloud', path: 'pdfs/Projets/Nextcloud.pdf' }
+                ]
+            },
+            reseau: {
+                title: 'Infrastructure Réseau',
+                description: 'Configuration et déploiement services réseau',
+                pdfs: [
+                    { name: 'Réseau Alisée Angers', path: 'pdfs/Projets/Projet Pro_QB_v2- Reseau Alisee Angers.pdf' }
+                ]
+            },
+            accompagnement: {
+                title: 'Accompagnement',
+                description: 'Formations internes et documentation utilisateur',
+                pdfs: [
+                    { name: 'Contact Externe',           path: 'pdfs/Tuto/Tuto - Conctact_Externe.pdf' },
+                    { name: 'Filtre Mail',               path: 'pdfs/Tuto/Tuto - Filtre_mail.pdf' },
+                    { name: 'LimeSurvey Tips & Info',    path: 'pdfs/Tuto/Tuto - LimeSurvey_Tips&Info.pdf' },
+                    { name: 'MEG Note de frais',         path: 'pdfs/Tuto/Tuto - MEG_Note_de_frais.pdf' },
+                    { name: 'Modifier agenda FR',        path: 'pdfs/Tuto/Tuto - Modifier_agenda_FR.pdf' },
+                    { name: 'Nextcloud Talk',            path: 'pdfs/Tuto/Tuto - Nextcloud_Talk.pdf' },
+                    { name: 'Partage interne/externe',   path: 'pdfs/Tuto/Tuto - Partage_interne_externe.pdf' },
+                    { name: 'Recevoir code Zooms',       path: 'pdfs/Tuto/Tuto - Recevoir_code_Zooms.pdf' },
+                    { name: 'Signature France Rénov',   path: 'pdfs/Tuto/Tuto - Signature_France_Renov.pdf' },
+                    { name: 'ThunderBird Connecteur BM', path: 'pdfs/Tuto/Tuto - ThunderBird_Connecteur_BM.pdf' },
+                    { name: 'ThunderBird STARTTLS',      path: 'pdfs/Tuto/Tuto - ThunderBird_STARTTLS.pdf' }
+                ]
+            },
+            veille: {
+                title: 'Veille Techno',
+                description: 'Veille RSS et certification Cisco en cours',
+                pdfs: []
+            }
+        };
+
+        let currentCreation = null;
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openCreationModal(creationId) {
+            currentCreation = creationId;
+            const creation = creationsData[creationId];
+            document.getElementById('modal-title').textContent = creation.title;
+            document.getElementById('modal-description').textContent = creation.description;
+            rebuildPDFList();
+            document.getElementById('creation-modal').classList.add('active');
+        }
+
+        function rebuildPDFList() {
+            const pdfList = document.getElementById('pdf-list');
+            const pdfs = creationsData[currentCreation].pdfs;
+
+            if (pdfs.length === 0) {
+                pdfList.innerHTML = '<p style="text-align: center; color: #888; padding: 20px;">Aucun document disponible.</p>';
+                return;
+            }
+
+            let html = '';
+            for (let i = 0; i < pdfs.length; i++) {
+                const path = pdfs[i].path;
+                const name = pdfs[i].name;
+                html += '<div class="pdf-item">';
+                html += '<div class="pdf-item-left" onclick="viewPDF(' + i + ')">';
+                html += '<span class="pdf-item-icon">📄</span><span>' + name + '</span>';
+                html += '</div>';
+                html += '</div>';
+            }
+
+            pdfList.innerHTML = html;
+        }
+
+        function closeCreationModal() {
+            document.getElementById('creation-modal').classList.remove('active');
+        }
+
+        function viewPDF(index) {
+            const pdf = creationsData[currentCreation].pdfs[index];
+            document.getElementById('pdf-viewer-title').textContent = pdf.name;
+            const viewer = document.getElementById('modal-pdf-viewer');
+            viewer.innerHTML =
+                '<div style="text-align:right; padding:8px 15px; background:#F0FFF0;">' +
+                '<a href="' + pdf.path + '" target="_blank" ' +
+                'style="color:#6B8E23; font-family:\'Patrick Hand\',cursive; font-size:1rem; text-decoration:none;">' +
+                '↗ Ouvrir dans un nouvel onglet</a></div>' +
+                '<iframe src="' + pdf.path + '" ' +
+                'style="width:100%; height:calc(70vh - 42px); border:none; display:block;">' +
+                '</iframe>';
+            document.getElementById('pdf-viewer-modal').classList.add('active');
+        }
+
+        function closePDFViewer() {
+            document.getElementById('pdf-viewer-modal').classList.remove('active');
+            document.getElementById('modal-pdf-viewer').innerHTML = '';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('creation-modal')) closeCreationModal();
+            if (event.target === document.getElementById('pdf-viewer-modal')) closePDFViewer();
+        };
+
+        // Copier l'email
+        window.addEventListener('DOMContentLoaded', function() {
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            if (!copyEmailBtn) return;
+
+            copyEmailBtn.addEventListener('click', function() {
+                const email = 'quentin.bordron@angers.polebtsalternance.fr';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(function() {
+                        copyEmailBtn.textContent = '✅ Email copié !';
+                        setTimeout(function() { copyEmailBtn.textContent = '📋 Copier l\'email'; }, 2000);
+                    }).catch(function() { fallbackCopy(email); });
+                } else {
+                    fallbackCopy(email);
+                }
+            });
+
+            function fallbackCopy(text) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    copyEmailBtn.textContent = '✅ Email copié !';
+                    setTimeout(function() { copyEmailBtn.textContent = '📋 Copier l\'email'; }, 2000);
+                } catch (err) {
+                    alert('Email : quentin.bordron@angers.polebtsalternance.fr');
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+    </script>
+</body>
 </html>
