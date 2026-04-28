@@ -1,7 +1,8 @@
 # 🌿 Portfolio de Quentin B. · BTS SIO SISR
 
-> *Un portfolio aux inspirations nature — nuages flottants, feuilles tombantes,  
-> typographies manuscrites — pour présenter deux années de formation en alternance.*
+> *Un portfolio aux inspirations naturelles et enfantines.
+> Etant quelqu'un de simple et de positif, mon portfolio devait le refléter.
+> https://tsymlis.github.io/Portfolio_B_Quentin/*
 
 <div align="center">
 
