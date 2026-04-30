@@ -30,45 +30,6 @@ mais ma première empreinte qui sera un jour un souvenir nostalgique.
 
 ---
 
-## 🗂️ Rubriques
-
-| Section | Contenu |
-|---|---|
-| 📦 **Patrimoine Informatique** | Inventaire et gestion du parc via GLPI |
-| 🎫 **Support & Assistance** | Tickets et gestion d'incidents utilisateurs |
-| 📋 **Mode Projet** | Planification agile et suivi avec Trello |
-| ☁️ **Service Cloud** | Déploiement Nextcloud collaboratif |
-| 🌐 **Infrastructure Réseau** | Configuration et déploiement réseau |
-| 📚 **Accompagnement** | Tutoriels et documentation utilisateur |
-| 📡 **Veille Techno** | Veille RSS, Certification PIX (en cours) |
-| 📊 **Synthèse** | Tableau de synthèse E5 |
-
----
-
-## 🛠️ Stack
-
-- **HTML / CSS / JavaScript** pur — aucune dépendance externe
-- Polices : `Caveat` & `Patrick Hand` (Google Fonts)
-- PDFs intégrés via `<iframe>` avec chemins relatifs
-- Aucun framework, aucun bundler
-
----
-
-## 🍃 Structure des fichiers
-
-```
-Portfolio_B_Quentin/
-├── index.html
-└── pdfs/
-    ├── Tickets/       → Support & Assistance
-    ├── Tuto/          → Accompagnement
-    ├── Projets/       → Mode Projet · Service Cloud · Réseau
-    ├── BTS-SIO_Tableau-synthese_Epreuve-E5.pdf
-    └── CV_Quentin_Bordron_2026.pdf
-```
-
----
-
 <div align="center">
   <sub>🌿 BTS SIO SISR · Pôle BTS Alternance Angers · 2024–2026</sub>
 </div>
