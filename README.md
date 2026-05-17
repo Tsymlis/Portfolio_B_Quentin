@@ -1,4 +1,4 @@
-# 🌿 Portfolio de Quentin B. · BTS SIO SISR
+# Portfolio de Quentin B. · BTS SIO SISR
 
 <div align="center">
 
@@ -15,7 +15,7 @@
 
 ---
 
-## 🌱 Qui suis-je ?
+## Qui suis-je ?
 
 Un jeune homme enjoué et curieux né et élevé en Vendée, avant de prendre racines sur Angers.
 
