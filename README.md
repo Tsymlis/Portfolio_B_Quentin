@@ -5,7 +5,7 @@
 *Un portfolio aux inspirations naturelles et enfantines.*  
 *Étant quelqu'un de simple et de positif, mon portfolio devait le refléter.*
 
-[![Voir le portfolio](https://img.shields.io/badge/🌿_Voir_le_portfolio-tsymlis.github.io-6B8E23?style=for-the-badge)](https://tsymlis.github.io/Portfolio_B_Quentin/)
+[![Voir le portfolio](https://img.shields.io/badge/_Voir_le_portfolio-tsymlis.github.io-6B8E23?style=for-the-badge)](https://tsymlis.github.io/Portfolio_B_Quentin/)
 
 ![BTS SIO](https://img.shields.io/badge/BTS_SIO-SISR-6B8E23?style=for-the-badge)
 ![HTML](https://img.shields.io/badge/HTML-Pure-90EE90?style=for-the-badge&logo=html5&logoColor=2F4F2F)
